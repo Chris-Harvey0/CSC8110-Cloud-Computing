@@ -8,7 +8,8 @@ Each image needed its own configuration to work as well as a port mapped to it f
 For the Locust image two services were defined; one to host the web front end and one to simulate the worker nodes for load testing.
 This docker_compose.yml configuration was then deployed onto a Docker swarm.
 ## Task 2
-For this task a Java program was downloaded which is used for performance monitoring.
+For this task the [cadvisor scraper Java program](https://github.com/ncl-iot-team/cadvisor-scraper) was downloaded.
+This program makes use of the cadvisor instance to get performance statistics of one of the Docker containers.
 This needed to be modified slightly to work with the Docker swarm being used.
 So modifications were made and then this Java program was made into a Docker image and pushed to my repository on Docker hub.
 ## Task 3
@@ -27,3 +28,11 @@ Once this was complete a microservice needed to be deployed onto the cluster.
 For this the [Hello Kubernetes Docker image](https://hub.docker.com/r/paulbouwer/hello-kubernetes/) was used.
 This was deployed onto the cluster by running a deplyment.yml file using Terraform.
 Once this was deployed I forwarded the port to my machine and checked to see that the web front end was working as intended.
+## Reflection
+This project gave me experience in cloud computing which is an area of computing I had not made a project in before.
+It allowed me to build on my knowledge of Docker which I had used previously in my [Internet of Things project](https://github.com/Chris-Harvey0/CSC8112-Internet-of-Things).
+I had not used Azure Kubernetes Services or Terraform previously and found these tools took some getting used to.
+The main issue I encountered was with giving Terraform the correct permissions to create clusters on Azure.
+I explored the possible options that could be used and the differences between system assigned and user assigned managed identities.
+I decided that system assigned would be the simpler solution and implemented this.
+In future projects I would like to make more use of cloud as this was a relatively simple introduction to cloud computing.
